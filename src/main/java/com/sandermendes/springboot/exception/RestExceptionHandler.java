@@ -122,6 +122,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     /**
+     * Handles RuntimeException. Created to encapsulate errors with more detail than javax.persistence.RuntimeException.
+     *
+     * @param ex the RuntimeException
+     * @return the ApiError object
+     */
+    @ExceptionHandler(RuntimeException.class)
+    protected ResponseEntity<Object> handleRuntimeException(RuntimeException ex) {
+        ApiError apiError = new ApiError(BAD_REQUEST);
+        apiError.setMessage(ex.getMessage());
+        return buildResponseEntity(apiError);
+    }
+
+    /**
      * Handle HttpMessageNotReadableException. Happens when request JSON is malformed.
      *
      * @param ex      HttpMessageNotReadableException

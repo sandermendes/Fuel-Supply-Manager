@@ -29,6 +29,17 @@ public class SupplyFuelService {
     }
 
     public SupplyFuel createSupplyFuel(SupplyFuel supplyFuel) {
+        SupplyFuel lastSupply = this._getLastSupplyByLicence(supplyFuel.getLicensePlate());
+        if (lastSupply != null) {
+            // System.out.println("SupplyFuelService - _getLastSupplyByLicence - lastSupply: " + lastSupply);
+            // System.out.println("SupplyFuelService - createSupplyFuel - supplyFuel.getOdometer(): " + supplyFuel.getOdometer());
+            // System.out.println("SupplyFuelService - _getLastSupplyByLicence - lastSupply.getOdometer(): " + lastSupply.getOdometer());
+
+            if (Integer.parseInt(supplyFuel.getOdometer()) <= Integer.parseInt(lastSupply.getOdometer())) {
+                throw new RuntimeException("The odometer must be higher than the previous one");
+            }
+        }
+
         SupplyFuel newSupplyFuel = new SupplyFuel();
         newSupplyFuel.setLicensePlate(supplyFuel.getLicensePlate());
         newSupplyFuel.setOdometer(supplyFuel.getOdometer());
@@ -47,5 +58,12 @@ public class SupplyFuelService {
         return "Supply deleted with success";
     }
 
-    // private Boolean _getLastSupplyByLicence
+    private SupplyFuel _getLastSupplyByLicence(String licensePlate) {
+        List<SupplyFuel> supplyFuel = supplyFuelRepository.findByLicensePlate(licensePlate);
+        if (supplyFuel.isEmpty())
+            return null;
+
+        // System.out.println("SupplyFuelService - _getLastSupplyByLicence - supplyFuel: " + supplyFuel);
+        return supplyFuel.get(0);
+    }
 }
