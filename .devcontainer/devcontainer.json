@@ -1,23 +1,22 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/java
+// README at: https://github.com/devcontainers/templates/tree/main/src/java-postgres
 {
 	"name": "Java",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
-
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "true",
-			"installGradle": "false"
-		},
 		"ghcr.io/devcontainers/features/common-utils:2": {},
 		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
 		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
 	},
 
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {}
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// This can be used to network with other containers or with the host.
+	// "forwardPorts": [5432],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "java -version",
@@ -27,5 +26,6 @@
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
-	"remoteUser": "vscode"
+	"remoteUser": "vscode" //,
+	// "postCreateCommand": "sudo apt update && sudo apt install nodejs -y && sudo apt install npm -y"
 }
