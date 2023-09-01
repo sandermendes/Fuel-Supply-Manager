@@ -16,6 +16,7 @@ import java.util.Map;
 @Api(tags = "FuelSupply")
 @RestController
 @RequestMapping("api/v1/supply")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SupplyFuelController {
 
     @Autowired
