@@ -1,0 +1,39 @@
+version: "3.7"
+
+networks:
+  ################################
+  ######## Microservices #########
+  ################################
+  backend:
+    name: backend
+
+services:
+  ################################
+  ######## Microservices #########
+  ################################
+  java_app:
+    container_name: Java_Backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # env_file:
+    #   - .env
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+
+  ################################
+  ########### Frontend ###########
+  ################################
+  fuel_supply_management:
+    container_name: Fuel_Supply
+    build:
+      context: .
+      dockerfile: ./frontend/Fuel-Supply-Manager/Dockerfile
+    # env_file:
+    #   - .env
+    ports:
+      - 4200:4200
+    networks:
+      - backend
