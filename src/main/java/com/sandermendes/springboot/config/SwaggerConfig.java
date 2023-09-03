@@ -55,7 +55,7 @@ public class SwaggerConfig {
             .defaultModelExpandDepth(1)
             .defaultModelRendering(ModelRendering.EXAMPLE)
             .displayRequestDuration(false)
-            .docExpansion(DocExpansion.NONE)
+            .docExpansion(DocExpansion.LIST)
             .filter(false)
             .maxDisplayedTags(null)
             .operationsSorter(OperationsSorter.ALPHA)
