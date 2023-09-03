@@ -1,8 +1,14 @@
-# Spring Boot Angular
+# Fuel Supply Manager
 
-# Project Name
+Fuel Supply Manager is a full-stack web application for managing fuel supplies. It provides functionality to track and manage fuel supply data, making it easier to manage fuel-related records.
 
-Brief description of your project.
+
+## Buy me a coffee
+
+Whether you use this project, have learned something from it, or just like it, please consider supporting it. Your support helps me dedicate more time to open-source projects like this one.
+
+
+<a href="https://www.buymeacoffee.com/sandermendes" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ## Table of Contents
 
@@ -10,85 +16,56 @@ Brief description of your project.
 - [Technologies Used](#technologies-used)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
+  - [Setup](#setup)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
-Provide an overview of your project, including its purpose and key features.
+The Fuel Supply Manager is designed to help users manage fuel supply data efficiently. It offers features such as:
+
+- Viewing a list of all fuel supplies.
+- Adding new fuel supply records.
+- Deleting fuel supply records by ID.
 
 ## Technologies Used
 
-List the technologies and libraries used in your project, both on the backend and frontend. For example:
+The Fuel Supply Manager is built using the following technologies:
 
-- Backend:
-  - Spring Boot
-  - Spring Data JPA
-  
-- Frontend:
-  - Angular
-  - Angular Material
+- **Backend:**
+  - Spring Boot: A Java-based framework for building robust and scalable backend applications.
+  - Spring Data JPA: Simplifies data access and persistence in Spring-based applications.
+  - Swagger: Used for API documentation.
 
-## Prerequisites
-
-List any prerequisites that users/developers need to have before they can use your project. For example:
-
-- Java Development Kit (JDK) 8 or later
-- Node.js and npm
-- MySQL Database
+- **Frontend:**
+  - Angular: A popular JavaScript framework for building web applications.
+  - Angular Material: A UI component library for Angular applications.
 
 ## Getting Started
 
-Provide step-by-step instructions on how to set up and run your project.
+Follow these steps to set up and run the Fuel Supply Manager project with Docker.
 
-### Backend Setup
+### Setup
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-project.git
-   cd your-project
+   git clone https://github.com/sandermendes/Fuel-Supply-Manager.git
+   cd Fuel-Supply-Manager
    ```
 
-2. Configure the `application.properties` file in the backend project to connect to your database.
-
-3. Build and run the Spring Boot application:
+2. Build and run with Docker build
 
    ```bash
-   ./mvnw spring-boot:run
+   docker-compose up -d --build
    ```
 
-4. The backend should now be running on `http://localhost:8080`.
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-
-   ```bash
-   cd frontend
-   ```
-
-2. Install the required npm packages:
-
-   ```bash
-   npm install
-   ```
-
-3. Start the Angular development server:
-
-   ```bash
-   ng serve
-   ```
-
-4. The frontend should now be accessible at `http://localhost:4200`.
+3. The frontend should now be accessible at `http://localhost:4200`.
 
 ## Project Structure
 
-Explain the structure of your project's directories and important files.
+The project directory structure is organized as follows:
 
 ```
 root/
@@ -118,18 +95,23 @@ root/
 │── docker-compose.yml
 │── Dockerfile
 ```
+## DevContainer
+You can use DevContainer to easyly maintain the project
+
+## Development
+For development purposes, you can access Swagger at `http://localhost:8080/swagger-ui/`.
+
 
 ## Usage
 
-Explain how users/developers can use your project, including any important commands or functionality. Provide code examples if necessary.
+The Fuel Supply Manager offers a user-friendly interface for managing fuel supply records. Users can perform the following actions:
+
+- View a list of all fuel supplies.
+- Add new fuel supply records.
+- Delete fuel supply records by ID.
 
 ## Contributing
 
-Explain how others can contribute to your project, including instructions for opening issues or submitting pull requests.
-
-## License
-
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
-```
+Contributions to the Fuel Supply Manager are welcome! You can contribute by opening issues or submitting pull requests.
 
 Feel free to customize this template to match the specifics of your project. Provide as much detail as possible to make it easy for users and contributors to understand and use your Spring Boot and Angular application.
