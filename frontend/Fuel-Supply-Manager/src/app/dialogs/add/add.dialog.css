@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  padding-top: 6px;
+}
+
+.mat-form-field {
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-width: unset;
+  }
+
+  .mat-dialog-content {
+    max-height: unset;
+  }
+
+  .cdk-overlay-pane {
+    max-width: unset;
+  }
+
+  div.cdk-global-overlay-wrapper {
+    display: unset!important;
+  }
+}
